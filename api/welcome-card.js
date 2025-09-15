@@ -1,27 +1,27 @@
-import { WelcomeCard } from "discord-welcome-card";
+import { Welcome } from 'welcome-canvas';
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST allowed" });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Only POST allowed' });
   }
 
   const { username, avatarURL, serverName } = req.body;
 
   if (!username || !avatarURL || !serverName) {
-    return res.status(400).json({ error: "Eksik veri!" });
+    return res.status(400).json({ error: 'Eksik veri!' });
   }
 
   try {
-    const card = new WelcomeCard()
+    const card = new Welcome()
       .setUsername(username)
       .setAvatar(avatarURL)
       .setServerName(serverName);
 
     const buffer = await card.build();
 
-    res.setHeader("Content-Type", "image/png");
+    res.setHeader('Content-Type', 'image/png');
     res.send(buffer);
   } catch (err) {
-    res.status(500).json({ error: "Kart oluşturulamadı", details: err.message });
+    res.status(500).json({ error: 'Kart oluşturulamadı', details: err.message });
   }
 }
