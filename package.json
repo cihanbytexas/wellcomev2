@@ -1,0 +1,13 @@
+{
+  "name": "welcome-card-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/welcome-card.js"
+  },
+  "dependencies": {
+    "discord-welcome-card": "^1.2.0",
+    "express": "^4.18.2"
+  },
+  "type": "module"
+}
