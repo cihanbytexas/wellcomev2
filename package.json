@@ -6,7 +6,7 @@
     "start": "node api/welcome-card.js"
   },
   "dependencies": {
-    "discord-welcome-card": "^4.9.3",
+    "welcome-canvas": "^1.2.5",
     "express": "^4.18.2"
   },
   "type": "module"
